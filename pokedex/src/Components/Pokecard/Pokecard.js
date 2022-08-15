@@ -4,42 +4,45 @@ import "./Pokecard.css";
 import { Link } from "react-router-dom";
 
 export default function Pokecard({ text }) {
-  // text es el texto que se cambia con el Input, entonces si no hay nada escrito
-  // queremos que se devuelva toda la lista de pokemones como hasta ahora:
   let string = text;
   let regex = new RegExp(string, "gi");
   let filtered = Pokeinfo.filter(function (pokemon) {
     return pokemon.name.match(regex);
   });
 
-  // Una ves obtenido el filtrado (en este caso seria la constante filtered) podremos mostrarlos:
   return (
     <div className="pokecard-container">
       {filtered.map((pokemon) => {
-        const borderColor = {
-          border: `2px solid ${pokemon.primaryColor}`,
-        };
-        const colorId = {
-          color: `${pokemon.primaryColor}`,
-        };
-        const colorName = {
-          backgroundColor: `${pokemon.primaryColor}`,
-        };
-
         return (
-          <div className="card" style={borderColor} key={pokemon.name}>
+          <div className="card" key={pokemon.name}>
             <Link to={`/pokemon/${pokemon.name}`}>
-              <div className="id-card" style={colorId}>
+              <div
+                className="id-card"
+                style={{
+                  border: `1px solid ${pokemon.primaryColor}`,
+                  borderBottom: "none",
+                  borderRadius: "10px 10px 0 0",
+                }}
+              >
                 {pokemon.id}
               </div>
-              <div className="img-card-container">
+              <div
+                className="img-card-container"
+                style={{
+                  borderLeft: `1px solid ${pokemon.primaryColor}`,
+                  borderRight: `1px solid ${pokemon.primaryColor}`,
+                }}
+              >
                 <img
                   src={pokemon.img}
                   className="img-card"
                   alt="pokemon-photo"
                 />
               </div>
-              <div className="name-card" style={colorName}>
+              <div
+                className="name-card"
+                style={{ backgroundColor: `${pokemon.primaryColor}` }}
+              >
                 {pokemon.name}
               </div>
             </Link>
