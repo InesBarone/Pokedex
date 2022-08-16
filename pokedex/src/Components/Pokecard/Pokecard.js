@@ -3,10 +3,10 @@ import { Pokeinfo } from "../Pokeinfo/Pokeinfo";
 import "./Pokecard.css";
 import { Link } from "react-router-dom";
 
-export default function Pokecard({ text }) {
+export default function Pokecard({ text, pokeinfo }) {
   let string = text;
   let regex = new RegExp(string, "gi");
-  let filtered = Pokeinfo.filter(function (pokemon) {
+  let filtered = pokeinfo.filter(function (pokemon) {
     return pokemon.name.match(regex);
   });
 

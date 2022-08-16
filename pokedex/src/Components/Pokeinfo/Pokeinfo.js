@@ -1,6 +1,7 @@
 export const Pokeinfo = [
   {
     id: "#001",
+    number: 1,
     name: "Bulbasaur",
     img: "/Images/bulbasaur.png",
     primaryColor: "#74CB48",
@@ -40,6 +41,7 @@ export const Pokeinfo = [
   },
   {
     id: "#012",
+    number: 12,
     name: "Butterfree",
     img: "/Images/butterfree.png",
     primaryColor: "#A7B723",
@@ -79,6 +81,7 @@ export const Pokeinfo = [
   },
   {
     id: "#004",
+    number: 4,
     name: "Charmander",
     img: "/Images/charmander.png",
     primaryColor: "#F57D31",
@@ -118,6 +121,7 @@ export const Pokeinfo = [
   },
   {
     id: "#007",
+    number: 7,
     name: "Squirtle",
     img: "/Images/squirtle.png",
     primaryColor: "#6493EB",
@@ -157,6 +161,7 @@ export const Pokeinfo = [
   },
   {
     id: "#132",
+    number: 132,
     name: "Ditto",
     img: "/Images/ditto.png",
     primaryColor: "#AAA67F",
@@ -195,7 +200,8 @@ export const Pokeinfo = [
     ],
   },
   {
-    id: "#132",
+    id: "#304",
+    number: 304,
     name: "Aron",
     img: "/Images/aron.png",
     primaryColor: "#B7B9D0",
@@ -235,6 +241,7 @@ export const Pokeinfo = [
   },
   {
     id: "#092",
+    number: 92,
     name: "Gastly",
     img: "/Images/gastly.png",
     primaryColor: "#70559B",
@@ -274,6 +281,7 @@ export const Pokeinfo = [
   },
   {
     id: "#152",
+    number: 152,
     name: "Mew",
     img: "/Images/mew.png",
     primaryColor: "#FB5584",
@@ -313,6 +321,7 @@ export const Pokeinfo = [
   },
   {
     id: "#025",
+    number: 25,
     name: "Pikachu",
     img: "/Images/pikachu.png",
     primaryColor: "#F9CF30",
