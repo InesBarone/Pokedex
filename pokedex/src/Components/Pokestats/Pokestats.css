@@ -12,6 +12,8 @@
     bottom:0.8%;
     padding: 5%;
     font-family: 'Poppins', sans-serif;
+    position: absolute;
+    height:70vh;
 }
 
 .pokePhoto {
@@ -68,6 +70,7 @@
     width:1px;
     height:75px;
     background-color: gray;
+
 }
 
 .physics-container {
@@ -104,6 +107,35 @@ h4 {
     flex-direction: column;
 }
 
-.stats-text {
+
+.poke-stats a {
     display: flex;
+    justify-content: center;
 }
+
+.base-stats-line {
+    display: flex;
+    gap: 3%;
+    align-items: center;
+    justify-content: space-between;
+    }
+    
+    .stat-bar {
+        width: 70%;
+    }
+    
+    .stat-name {
+        width: 15%;
+        text-align:end;
+    }
+    
+    .stat-value {
+        width: 15%;
+        text-align: center;
+    }
+
+    .vertical-line {
+        width: 2px;
+        height: 25px;
+        background-color: grey;
+    }

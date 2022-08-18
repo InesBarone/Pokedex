@@ -4,11 +4,10 @@ import "./Principal.css";
 import { useState } from "react";
 import { Pokeinfo } from "../../Components/Pokeinfo/Pokeinfo";
 
-export default function Principal() {
+export default function Principal({ pokeinfo, setPokeinfo }) {
   // Este estado se corresponde con el texto ingresado en la barra de busqueda
   const [text, setText] = useState("");
   const [order, setOrder] = useState(false);
-  const [pokeinfo, setPokeinfo] = useState(Pokeinfo);
 
   const manejarInput = (e) => {
     setText(e.target.value);
@@ -21,11 +20,6 @@ export default function Principal() {
       return array.sort((a, b) => a.number - b.number);
     });
   };
-
-  // previousState => {
-  //   let array = [...previousState]
-  //   if(e.target.value == 1){
-  //   return array.sort((a,b) => a.edad - b.edad)
 
   const manageSortName = (e) => {
     setOrder(true);
@@ -58,7 +52,10 @@ export default function Principal() {
           </div>
           {order ? (
             <button className="arrow-button" onClick={manageSortId}>
-              <p>a-z</p>
+              <div>
+                <p style={{ fontSize: "10px", marginRight: "3px" }}>A</p>
+                <p style={{ fontSize: "10px", marginRight: "3px" }}>Z</p>
+              </div>
               <img
                 src="/Images/Arrow.svg"
                 alt="arrow-button"

@@ -45,9 +45,24 @@ h1.name-pokemon {
 .pokePhoto-container {
     width:100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     position: absolute;
-    top: 5vh;
+    top: 12vh;
     height:25vh;
     z-index:2;
+    align-items: center;
+}
+.arrow-button2 {
+    background:none;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.img-pokebola {
+    position: absolute;
+    top: 35px;
+    right:15px;
+    opacity: 0.2;
 }

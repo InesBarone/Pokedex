@@ -1,7 +1,9 @@
+import ProgressBar from "@ramonak/react-progress-bar";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Pokestats.css";
 
-export default function Pokestats({ info, aboutColor }) {
+export default function Pokestats({ info, aboutColor, pokeinfo }) {
   return (
     <div className="poke-stats">
       <div className="poke-type-container">
@@ -28,11 +30,9 @@ export default function Pokestats({ info, aboutColor }) {
         })}
       </div>
       <div className="about-arrows">
-        <button className="arrow-button">{"<"}</button>
         <h2 className="about" style={aboutColor}>
           About
         </h2>
-        <button className="arrow-button">{">"}</button>
       </div>
       <div className="poke-physics">
         <div className="physics-container">
@@ -74,16 +74,27 @@ export default function Pokestats({ info, aboutColor }) {
         <div className="stats-container">
           {info[0].stats.map((stat) => {
             return (
-              <div>
-                <div className="stats-text">
-                  <h5>{stat.name}</h5>
+              <div className="base-stats-line">
+                <div className="stat-name">
+                  <h5 style={{ color: `${info[0].primaryColor}` }}>
+                    {stat.name}
+                  </h5>
+                </div>
+                <div className="vertical-line"></div>
+                <div className="stat-value">
                   <p>{stat.value}</p>
                 </div>
-                <meter
-                  value={parseInt(`${stat.value}`)}
-                  min="0"
-                  max="220"
-                ></meter>
+                <div className="stat-bar">
+                  <ProgressBar
+                    completed={parseInt(`${stat.value}`)}
+                    min="0"
+                    max="220"
+                    customLabel=" "
+                    bgColor={info[0].primaryColor}
+                    className="bar"
+                    height="5px"
+                  />
+                </div>
               </div>
             );
           })}
