@@ -6,13 +6,21 @@
     row-gap: 1em;
     width:100%;
     gap:1em;
+    justify-content: space-between;
 }
 
+
 .card {
-   width: 30%;
-   border-radius: 10px;
-   font-family: 'Poppins', sans-serif;
-   overflow: hidden;
+    width: 30%;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+@media (min-width: 280px) {
+    .card {
+        width:29%;
+    }
 }
 
 .id-card {

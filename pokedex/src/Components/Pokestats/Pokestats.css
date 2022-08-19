@@ -16,6 +16,15 @@
     height:70vh;
 }
 
+@media (min-width:900px) {
+    .poke-stats {
+        position: relative;
+        height:fit-content;
+        margin-bottom: 1%;
+        margin-top: 150px;
+    }
+}
+
 .pokePhoto {
     width:50%;
     object-fit: contain;
