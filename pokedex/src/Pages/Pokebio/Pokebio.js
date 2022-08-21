@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Pokeinfo } from "../../Components/Pokeinfo/Pokeinfo";
 import Pokestats from "../../Components/Pokestats/Pokestats";
 import "./Pokebio.css";
 
 export default function Pokebio({ pokeinfo, setPokeinfo }) {
+  const [pokebio, setpokebio] = useState({});
+
   const params = useParams;
 
   const PokeName = params().name;
@@ -12,14 +14,33 @@ export default function Pokebio({ pokeinfo, setPokeinfo }) {
   const info = pokeinfo.filter((pokemon) => pokemon.name === PokeName);
 
   const background = {
-    backgroundColor: `${info[0].primaryColor}`,
+    backgroundColor: `${pokebio.primaryColor}`,
   };
 
   const aboutColor = {
-    color: `${info[0].primaryColor}`,
+    color: `${pokebio.primaryColor}`,
   };
 
-  let index = pokeinfo.indexOf(info[0]);
+  useEffect(() => {
+    if (info.length === 0) {
+      fetch(`http://localhost:3007/pokemones`)
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          setPokeinfo(result);
+        });
+      fetch(`http://localhost:3007/pokemones/?name=${PokeName}`)
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          setpokebio(result);
+        });
+    } else {
+      setpokebio(info[0]);
+    }
+  }, []);
+
+  let index = pokeinfo.indexOf(pokebio);
   const changePokemonLeft = () => {
     if (index === 0) {
       return `${pokeinfo[pokeinfo.length - 1].name}`;
@@ -49,22 +70,26 @@ export default function Pokebio({ pokeinfo, setPokeinfo }) {
                 alt="Arrow left"
               />
             </Link>
-            <h1 className="name-pokemon">{info[0].name}</h1>
+            <h1 className="name-pokemon">{pokebio.name}</h1>
           </div>
-          <div className="id">{info[0].id}</div>
+          <div className="id">{pokebio.id}</div>
         </div>
         <div className="pokePhoto-container">
           <Link to={`/pokemon/${changePokemonLeft()}`}>
             <button className="arrow-button2">{"<"}</button>
           </Link>
-          <img src={info[0].img} alt="Pokemon picture" className="pokePhoto" />
+          <img src={pokebio.img} alt="Pokemon picture" className="pokePhoto" />
           <Link to={`/pokemon/${changePokemonRight()}`}>
             <button className="arrow-button2" style={{ color: `` }}>
               {">"}
             </button>
           </Link>
         </div>
-        <Pokestats info={info} aboutColor={aboutColor} pokeinfo={pokeinfo} />
+        <Pokestats
+          info={[pokebio]}
+          aboutColor={aboutColor}
+          pokeinfo={pokeinfo}
+        />
       </div>
     </div>
   );

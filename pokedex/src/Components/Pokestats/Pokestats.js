@@ -13,6 +13,7 @@ export default function Pokestats({ info, aboutColor, pokeinfo }) {
               <div
                 className="poke-type"
                 style={{ backgroundColor: `${info[0].primaryColor}` }}
+                key={type}
               >
                 {type}
               </div>
@@ -22,6 +23,7 @@ export default function Pokestats({ info, aboutColor, pokeinfo }) {
               <div
                 className="poke-type"
                 style={{ backgroundColor: `${info[0].secondaryColor}` }}
+                key={type}
               >
                 {type}
               </div>
@@ -74,7 +76,7 @@ export default function Pokestats({ info, aboutColor, pokeinfo }) {
         <div className="stats-container">
           {info[0].stats.map((stat) => {
             return (
-              <div className="base-stats-line">
+              <div className="base-stats-line" key={stat.name}>
                 <div className="stat-name">
                   <h5 style={{ color: `${info[0].primaryColor}` }}>
                     {stat.name}

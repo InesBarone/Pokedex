@@ -6,9 +6,7 @@ import { Pokeinfo } from "./Components/Pokeinfo/Pokeinfo";
 import { useState } from "react";
 
 function App() {
-  const [pokeinfo, setPokeinfo] = useState(
-    Pokeinfo.sort((a, b) => a.number - b.number)
-  );
+  const [pokeinfo, setPokeinfo] = useState([]);
 
   return (
     <div className="App">

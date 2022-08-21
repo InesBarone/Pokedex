@@ -1,7 +1,7 @@
 import React from "react";
 import Pokecard from "../../Components/Pokecard/Pokecard";
 import "./Principal.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Pokeinfo } from "../../Components/Pokeinfo/Pokeinfo";
 
 export default function Principal({ pokeinfo, setPokeinfo }) {
@@ -24,6 +24,14 @@ export default function Principal({ pokeinfo, setPokeinfo }) {
   const manejarInput = (e) => {
     setText(e.target.value);
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:3007/pokemones`)
+      .then((res) => res.json())
+      .then((result) => {
+        setPokeinfo(result);
+      });
+  }, []);
 
   //manejarSortId se encarga de ordenar segun el ID, y al hacerle click, imgArrow es igual al valor inicial (flecha abajo)
   const manageSortId = (e) => {
